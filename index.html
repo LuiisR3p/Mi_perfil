@@ -161,8 +161,7 @@ html.intro .enter{animation-play-state:paused}
   <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-5 gap-14 items-center">
     <div class="reveal md:col-span-2 flex justify-center">
       <div class="mc p-3 bg-[#1d2540]">
-        <!-- Reemplaza el src con tu foto: p. ej. src="foto.jpg" -->
-        <img src="https://placehold.co/320x320/1e293b/7bd24a?text=LA" alt="Foto de Luis Antonio" width="256" height="256" class="w-64 h-64 object-cover" style="image-rendering:pixelated">
+        <img src="foto-perfil.jpg" alt="Foto de Luis Antonio" width="256" height="256" class="w-64 h-64 object-cover">
         <p class="px text-[10px] text-center mt-3 text-[var(--gold)]">Nv. Full-Stack</p>
       </div>
     </div>
@@ -264,7 +263,7 @@ function targets(src){
   for(let y=0;y<n;y++)for(let i=0;i<n;i++){
     const k=(y*n+i)*4,r=d[k],g=d[k+1],b=d[k+2],lum=(.3*r+.59*g+.11*b)/255;
     let alpha=1;
-    if(isPhoto){const dx=i/n-.5,dy=y/n-.45,rad=Math.hypot(dx*1.1,dy);alpha=Math.max(0,1-Math.max(0,rad-.28)/.2);if(lum<.12||alpha<.05)continue;if(Math.random()>.93)continue}
+    if(isPhoto){const dx=i/n-.5,dy=y/n-.45,rad=Math.hypot(dx*1.1,dy);alpha=Math.max(0,1-Math.max(0,rad-.4)/.1);if(lum<.07||alpha<.05)continue;if(Math.random()>.93)continue}
     const col=isPhoto?`rgba(${120+lum*135|0},${160+lum*95|0},${190+lum*65|0},${(.35+lum*.65)*alpha})`:`rgb(${r},${g},${b})`;
     const tx=ox+i*cell,ty=oy+y*cell,a=Math.random()*Math.PI*2,sp=40+Math.random()*Math.max(W,H)*.6;
     parts.push({tx,ty,sx:ex+Math.cos(a)*sp,sy:ey+Math.sin(a)*sp,col,s:isPhoto?Math.max(1.6,cell*.8):cell*.92,dl:Math.random()*600+Math.hypot(tx-ex,ty-ey)*.6,ph:Math.random()*6.28});
